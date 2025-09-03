@@ -5,7 +5,7 @@ This is the backend API server for the DeepSeek AI Chat Application built with N
 ## Features
 
 - **Authentication**: User management with JWT tokens
-- **Chat Management**: Create, read, update, and delete chat conversations
+- **Chat Management**: Post, read, update, and delete chat conversations
 - **File Upload**: Cloudinary integration for file storage and retrieval
 - **PDF Analysis**: PDF text extraction and analysis
 - **Web Search**: Web scraping and search functionality
