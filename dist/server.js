@@ -35,7 +35,6 @@ app.use(cookieParser());
 // CORS configuration
 const allowedOrigins = [
     'http://localhost:3000', // Local development
-    'https://deepseek-ai-client.vercel.app', // Production client
     'https://deepseek-ai-web.vercel.app', // Production frontend
     'https://deepseek-ai-client.vercel.app', // Alternative client URL
     process.env.CLIENT_URL // Custom client URL from environment
@@ -135,12 +134,7 @@ app.get('/', (_req, res) => {
 app.use('*', (req, res) => {
     res.status(404).json({ error: 'Route not found' });
 });
-// For Vercel deployment, export the app instead of listening
-if (process.env.NODE_ENV !== 'production') {
-    app.listen(PORT, () => {
-        console.log(`Server running on port ${PORT}`);
-        console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
-    });
-}
-// Export the Express app for Vercel
-exports.default = app;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+    console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
+});
